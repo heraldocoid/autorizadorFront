@@ -1,0 +1,23 @@
+<div class="card">
+    <h5 class="card-header">Crear Tarjeta</h5>
+    <div class="card-body">
+        <form [formGroup]="formTipoTarjeta" (ngSubmit)="submitTarjeta()">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label" [ngClass]="formTipoTarjeta.controls['tipoTarjeta'].invalid ? 'text-danger' : ''">Tipo de tarjeta</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" formControlName="tipoTarjeta" value="{{tipTar.tipoTarjeta}}" [ngClass]="formTipoTarjeta.controls['tipoTarjeta'].invalid ? 'is-invalid' : ''">
+                    </div>
+                    <div class="col-auto alert alert-danger" role="alert" *ngIf="formTipoTarjeta.controls['tipoTarjeta'].hasError('required')">
+                        El tipo de tarjeta es solicitado
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-success">Crear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
